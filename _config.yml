@@ -4,8 +4,8 @@
 
 # Site
 title: PJ的博客
-subtitle: '就这就这就这就这就这就这就这就这就这就这'
-description: '躺下了'
+subtitle: 就这就这就这就这就这就这就这
+description: 躺下了
 keywords:
 author: BLADE
 language: zh-CN
@@ -41,7 +41,7 @@ external_link:
   exclude: ''
 filename_case: 0
 render_drafts: false
-post_asset_folder: false
+post_asset_folder: true
 relative_link: false
 future: true
 highlight:
@@ -106,3 +106,10 @@ deploy:
   type: git
   repository: git@github.com:HBLADEH/HBLADEH.github.io.git  #你的仓库地址SSH 
   branch: master
+
+# Local Search
+search:
+  path: search.xml
+  field: post
+  format: html
+  limit: 10000
