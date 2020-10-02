@@ -11,11 +11,11 @@ categories: hexo 循序渐进
 
 ## <a id="menu">目录</a>
 
-* [评论插件 Gitalk](#gitalk)
-* [添加左边菜单栏默认选项](#leftmenu)
-* [添加阅读次数](#reads)
-* [添加相关链接](#links)
-* [添加搜索](#search)
+>* [评论插件 Gitalk](#gitalk)
+>* [添加左边菜单栏默认选项](#leftmenu)
+>* [添加阅读次数](#reads)
+>* [添加相关链接](#links)
+>* [添加搜索](#search)
 
 <!--more-->
 

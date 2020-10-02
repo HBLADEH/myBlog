@@ -1,5 +1,5 @@
 ---
-title: 学习 spring boot (一) 新建项目
+title: 学习 spring boot（一）新建项目，项目结构解析
 date: 2020-09-30 20:27:41
 tags: 
   - spring-boot
@@ -9,16 +9,19 @@ comments: true
 ---
 上来我直接列出 spring boot 的优点:
 
-* 遵循"约定大于配置"的原则，简化了配置：
-  * 牺牲了一定了灵活性，但是统一约定统一配置，适合整体管理
-* 完全脱离 xml 配置，可以使用注解和 java config 进行配置
-* 内嵌了 Servlet 容器，应用可以用 jar 包执行 (java -jar)
-* 能快速构建项目、整合第三方类库，方便易用
-* 提供了 starter POM，可以方便的进行包管理，简化包管理配置
-* 于 spring cloud 相通，spring boot 是目前 java 体系内实现微服务的最佳方案
+>* 遵循"约定大于配置"的原则，简化了配置：
+>* 牺牲了一定了灵活性，但是统一约定统一配置，适合整体管理
+>* 完全脱离 xml 配置，可以使用注解和 java config 进行配置
+>* 内嵌了 Servlet 容器，应用可以用 jar 包执行 (java -jar)
+>* 能快速构建项目、整合第三方类库，方便易用
+>* 提供了 starter POM，可以方便的进行包管理，简化包管理配置
+>* 于 spring cloud 相通，spring boot 是目前 java 体系内实现微服务的最佳方案
 <!-- more -->
 
 IDE当然是 IDEA 啦，不用Eclipse哈。
+
+spring boot 并不是说要替代掉 spring 或者是 spring mvc，而是为了让使用者能更加简单地使用它们
+spring boot 就是基于 spring 的框架的基础上进行一些封装，让 spring 用起来更加简单
 
 ## 新建项目
 
@@ -71,20 +74,23 @@ first
 │  └─wrapper
 ├─src
 │  ├─main
-│  │  ├─java
+│  │  ├─java   <!-- 标准 Java存放位置 !-->
 │  │  │  └─com
 │  │  │      └─pjboy
 │  │  │          └─first
 │  │  │              └─controller
-│  │  └─resources
+│  │  │              └─FirstApplication.java  <!-- 入口文件在此 !-->
+│  │  └─resources <!-- 资源 !-->
 │  │      ├─static
 │  │      └─templates
-│  └─test
+│  │      └─application.properties <!-- 项目全局配置文件在此 !-->
+│  └─test <!-- 用于写测试用例 !-->
 │      └─java
 │          └─com
 │              └─pjboy
 │                  └─first
-└─target
+│                  └─FirstApplicationTests.java
+└─target <!-- 编译结果，字节码等 !-->
     ├─classes
     │  └─com
     │      └─pjboy
@@ -98,4 +104,6 @@ first
         └─com
             └─pjboy
                 └─first
+└─pom.xml <!-- maven 的管理文件 !-->
+
 ```
