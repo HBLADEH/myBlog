@@ -155,19 +155,3 @@ public class AjaxResponse {
 
 }
 ```
-
-```flow  
-sender=>operation: 操作发送者
-dispatchservlet=>operation: DispatchServlet
-hadlermapping=>operation: HadlerMapping
-hadleradapter=>operation: HadlerAdapter
-
-sender(right)->dispatchservlet
-dispatchservlet->hadlermapping
-dispatchservlet(right)->hadleradapter
-```
-
-```mermaid
-graph TD
-   A --> B
-```

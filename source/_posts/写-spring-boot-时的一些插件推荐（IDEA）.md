@@ -5,6 +5,7 @@ tags:
 - idea
 - spring boot
 - java 
+categories: spring boot 学习
 ---
 
 一些插件的推荐，具体看下面

@@ -113,9 +113,3 @@ search:
   field: post
   format: html
   limit: 10000
-
-mermaid: ## mermaid url https://github.com/knsv/mermaid
-  enable: true
-  version: "8.0.0"
-  options:  # find more api options from https://github.com/knsv/mermaid/blob/master/src/mermaidAPI.js
-    #startOnload: true  // default true
