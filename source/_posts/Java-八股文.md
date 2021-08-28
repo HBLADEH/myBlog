@@ -90,7 +90,7 @@ Java 对象实现序列化要实现 Serializable 接口。
 * Vector 类似 ArrayList，线程安全，扩容默认增长为原来的两倍，还可以指定增长空间长度。
 * LinkedList 基于链表实现，1.7 为双向链表，1.6为双向循环链表，取消循环能更好地分清头尾。
 
-## Map (Key, Value)
+### Map (Key, Value)
 
 * HashMap
   1. 底层为数据结构，JDK1.8 是**数组 + 链表 + 红黑树**，JDK1.7 无红黑树。链表长度大于8时，转化为红黑树，优化查询效率。
@@ -102,3 +102,13 @@ Java 对象实现序列化要实现 Serializable 接口。
 * HashMap(1.7) 多线程循环链表问题
   1. 在多线程环境下，进行扩容时，1.7下的 HashMap 会形成循环链表。
   2. 则么形成循环链表: 假设有一 HashMap 容量为 2，在数组下标 1 位置以 A -> B 链表形式存储。有以线程对该 map 做 put 操作，由于触发扩容条件，需要进行扩容。这时另一个线程也 put 操作，同样需要扩容，并完成了扩容操作，由于复制到新数组是头部插入，所以 1 位置变为 B -> A 。这时第一个线程继续做扩容操作，首先复制 A ，然后复制 B ，再判断 B.next 是否为空时，由于第二个线程做了扩容操作，导致 B.next = A，所以在将 A 放到 B 前，A.next 又等于 B ，导致循环链表出现。
+
+* HashTable
+  * 线程安全, 方法基本是用 Synchronized 修饰
+  * 初始容量为 11, 扩容为 2n+1
+  * 继承 Dictionary 类。
+
+* ConcurrentHashMap
+  * 线程安全的 HashMap。
+  * 1.7 采用分段锁的形式加锁; 1.8 使用 Synchronized 和 CAS 实现同步, 若数组的 Node 为空, 则通过 CAS 的方式设置值, 不为空则加在链表的第一个结点。获取第一个元素是否为空使用 Unsafe 类提供的 getObjectVolatile 保证可见性。
+  * 对于读操作, 数组由 volatile 修饰, 同时数组元素为 Node, Node 的 K 使用 final 修饰, V 使用 volatile 修饰, 下一个结点也用 volatile 修饰, 保证多线程的可见性
